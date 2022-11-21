@@ -22,10 +22,9 @@ const titleClickHandler = function (event) {
   /* [IN PROGRESS] add class 'active' to the clicked link */
 
    console.log('clickedElement (with plus): ' + clickedElement);
-
-  for (this clickedElement of clickedElements) {
-    clickedElement.add('active')
-  }
+   
+  clickedElement.classList.add('active')
+  
 
   /* [DONE] remove class 'active' from all articles */
 
@@ -37,32 +36,51 @@ const titleClickHandler = function (event) {
 
   /* get 'href' attribute from the clicked link */
 
-  const articleSelector = clickedElement('href');
+  const articleSelector = clickedElement.getAttribute('href');
 
-  for (let articleSelector of articleSelectors) {
-    articleSelector.add('href');
-  }
-  
+
   /* find the correct article using the selector (value of 'href' attribute) */
 
-  const targetArticle = querySelector('href');
-
-  for (let targetArticle of targetArticles) {
-    targetArticle.add('href');
-  }
+  const targetArticle = document.querySelector(articleSelector);
+ 
 
   /* add class 'active' to the correct article */
 
-  const targetArticle = querySelector('active');
+ targetArticle.classList.add('active')
 
-  for (let targetArticle of targetArticles) {
-    targetArticle.add('active');
-  }
+}
 
-};
+
+
+generateTitleLinks();
+
 
 const links = document.querySelectorAll('.titles a');
 
 for (let link of links) {
   link.addEventListener('click', titleClickHandler);
 }
+
+const optArticleSelector = '.post',
+optTitleSelector = '.post-title',
+optTitleListSelector = '.titles';
+
+function generateTitleLinks(){
+
+/* remove contents of titleList */
+
+function clearMessages(){
+  document.getElementById('messages').innerHTML = '';
+}
+
+/* for each article */
+
+  /* get the article id */
+
+  /* find the title element */
+
+  /* get the title from the title element */
+
+  /* create HTML of the link */
+
+  /* insert link into titleList */
