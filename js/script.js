@@ -53,12 +53,6 @@ const titleClickHandler = function (event) {
 
 generateTitleLinks();
 
-const links = document.querySelectorAll('.titles a');
-
-for (let link of links) {
-  link.addEventListener('click', titleClickHandler);
-}
-
 const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles';
@@ -88,8 +82,6 @@ function generateTitleLinks() {
 
     /* get the title from the title element */
 
-    const articleTitle = article.getTitle('title');
-
     /* create HTML of the link */
 
     const linkHTML =
@@ -98,8 +90,6 @@ function generateTitleLinks() {
       '"><span>' +
       articleTitle +
       '</span></a></li>';
-    const linkHTMLData = { id: articleId, title: articleTitle };
-    const linkHTML = templates.articleLink(linkHTMLData);
 
     /* insert link into titleList */
 
@@ -112,60 +102,6 @@ function generateTitleLinks() {
   for (let link of links) {
     link.addEventListener('click', titleClickHandler);
   }
-}
-
-generateTitleLinks();
-
-const optArticleSelector = '.post',
-  optTitleSelector = '.post-title',
-  optTitleListSelector = '.titles';
-
-function generateTitleLinks() {
-  /* remove contents of titleList */
-  /* ... */
-  const titleList = document.querySelector(optTitleListSelector);
-  console.log(titleList);
-  titleList.innerHTML = '';
-
-  /* find all the articles and save them to variable: articles */
-  /* ... */
-
-  const articles = document.querySelectorAll(
-    optArticleSelector + customSelector
-  );
-  let html = '';
-
-  for (let article of articles) {
-    /* get the article id */
-    /* ... */
-
-    const articleId = article.getAttribute('id');
-
-    /* find the title element */
-    /* ... */
-
-    const articleTitle = article.querySelector(optTitleSelector).innerHTML;
-
-    /* get the title from the title element */
-    /* ... */
-
-    /* create HTML of the link */
-    /* ... */
-
-    const linkHTML =
-      '<li><a href="#' +
-      articleId +
-      '"><span>' +
-      articleTitle +
-      '</span></a></li>';
-    const linkHTMLData = { id: articleId, title: articleTitle };
-    const linkHTML = templates.articleLink(linkHTMLData);
-
-    /* insert link into html variable */
-    html = html + linkHTML;
-  }
-
-  titleList.innerHTML = html;
 }
 
 generateTitleLinks();
