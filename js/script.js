@@ -51,8 +51,6 @@ const titleClickHandler = function (event) {
   targetArticle.classList.add('active');
 };
 
-generateTitleLinks();
-
 const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles';
@@ -66,9 +64,7 @@ function generateTitleLinks() {
 
   /* for each article */
 
-  const articles = document.querySelectorAll(
-    optArticleSelector + customSelector
-  );
+  const articles = document.querySelectorAll(optArticleSelector);
   let html = '';
 
   for (let article of articles) {
